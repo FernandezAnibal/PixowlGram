@@ -1,7 +1,11 @@
 const {Router} = require('express');
 const router = Router();
 
-const {getUPosts, getAllPosts} = require('../controllers/postsController');
+const {getUPosts, getAllPosts, createPost, likePost} = require('../controllers/postsController');
+
+router.post('/',createPost);
+
+router.put('/:id',likePost);
 
 router.get('/:id/:interval', getUPosts);
 
