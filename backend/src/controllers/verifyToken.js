@@ -10,7 +10,6 @@ function verifyToken (req, res, next){
     }
     const decode = jwt.verify(token, process.env.Secret)
     req.userId = decode.id;
-
     next();
 
 }

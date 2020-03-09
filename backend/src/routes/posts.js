@@ -8,9 +8,9 @@ router.post('/',createPost);
 
 router.put('/:id',likePost);
 
-router.get('/:id/:interval', verifyToken, getUPosts);
+router.get('/:id/:page', verifyToken, getUPosts);
 
-router.get('/:interval', verifyToken, getAllPosts);
+router.get('/:page', verifyToken, getAllPosts);
 
 module.exports = router;
 

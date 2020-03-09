@@ -31,12 +31,15 @@ postsCtrl.likePost = async (req, res) => {
 }
 
 postsCtrl.getUPosts = (req, res) => {
-    
     res.json('User Posts in Intervals');
 }
 
 postsCtrl.getAllPosts = async (req, res) => {
-    const posts = await Post.find();
+    let skipN = (req.params.page-1)*6
+    let count = await Post.find().countDocuments();
+    //TODO verify if count is more than skipN
+    skipN = Number.isInteger(skipN) ? Math.abs(skipN) : 0;
+    const posts = await Post.find().skip(skipN).limit(6).sort('createdAt');
     res.json(posts);
 }
 
