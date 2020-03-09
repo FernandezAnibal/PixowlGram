@@ -31,6 +31,7 @@ postsCtrl.likePost = async (req, res) => {
 }
 
 postsCtrl.getUPosts = (req, res) => {
+    
     res.json('User Posts in Intervals');
 }
 
